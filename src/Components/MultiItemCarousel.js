@@ -3,10 +3,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carousel.css";
 import React, { useState, useEffect } from 'react'
-import { fs } from '../Config/Config'
 import * as IoIcons from "react-icons/io";
 import { IndividualProductCarousel } from "./IndividualProductCarousel";
-
+import { auth, fs } from '../Config/Config';
 
 const PreviousBtn = (props) => {
   const { className, onClick } = props;
@@ -67,6 +66,21 @@ const carouselProperties = {
 };
 
 const MultiItemCarousel = (props) => {
+    // getting current user uid
+
+    function GetUserUid() {
+        const [uid, setUid] = useState(null);
+        useEffect(() => {
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    setUid(user.uid);
+                }
+            })
+        }, [])
+        return uid;
+    }
+    const uid = GetUserUid();
+
 
   // state of products
   const [category, setCategory] = useState([]);
@@ -86,7 +100,7 @@ const MultiItemCarousel = (props) => {
       }
     }
   }
-
+  
   useEffect(() => {
     getCategory();
   }, [])

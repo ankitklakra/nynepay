@@ -21,7 +21,7 @@ import { OrderListPage } from './Components/OrderListPage'
 import { AllOrderListPage } from './Components/AllOrderListPage'
 import { TermsandCondition } from './Components/TermsandCondition'
 import { PrivacyPolicy } from './Components/PrivacyPolicy'
-import { FrontPage } from './Components/FrontPage'
+
 import { AddCategories } from './Components/AddCategories'
 import { MobilesPage } from './Components/CategoryPages/MobilesPage'
 import { AppliancesPage } from './Components/CategoryPages/AppliancesPage'
@@ -39,26 +39,24 @@ import { JewelleryPage } from './Components/CategoryPages/JewelleryPage';
 import { OthersPage } from './Components/CategoryPages/OthersPage';
 import { WalletPage } from './Components/WalletPage';
 import Footer from './Components/Footer';
-import Sidebar from './Components/Sidebar';
+
 import Navbar from './Components/ProductCarousel/Navbar';
 
 function App() {
   return (
        <BrowserRouter>
-         {/* <TopNavbar /> */}
-         {/* <Sidebar/> */}
+      
          <Navbar/>
          <Routes>
            <Route path='/' element={<Home/>} />
-           <Route path='/side' element={<Sidebar/>} />
-           <Route path='/frontpage' element={<FrontPage/>} />
+           <Route path='/home' element={<Home/>}/>
+
            <Route path='/signup' element={<Signup/>} />
            <Route path='/login' element={<Login/>} />
            <Route path='/profile' element={<Profile/>} />
-           <Route path="/add-products" element={<AddProducts/>}/>
+
            <Route path="/mobiles" element={<MobilesPage/>}/>
            <Route path="/appliances" element={<AppliancesPage/>}/>  
-           <Route path="/home" element={<Home/>}/>
            <Route path="/home-Decor" element={<HomeDecorPage/>}/>
            <Route path="/electronic" element={<ElectronicPage/>}/>
            <Route path="/fashion" element={<FashionPage/>}/>
@@ -72,20 +70,26 @@ function App() {
            <Route path="/jewellery" element={<JewelleryPage/>}/>
            <Route path="/others" element={<OthersPage/>}/>
            <Route path="/wallet" element={<WalletPage/>}/>
-           <Route path="/add-categories" element={<AddCategories/>}/>
-           <Route path="/add-winners" element={<AddWinners/>}/>
+ 
            <Route path='/about-us' element={<AboutUs/>} />    
            <Route path='/contact-us' element={<ContactUs/>} />    
            <Route path='/winners' element={<WinnersPage/>} />    
-           <Route path='/adminpanel' element={<AdminPanel/>} />    
-           <Route path='/user-list' element={<UserListPage/>} />    
-           <Route path='/bid-list' element={<BidListPage/>} />    
+           
            <Route path='/my-orders' element={<OrderListPage/>} />  
-           <Route path='/all-orders' element={<AllOrderListPage/>} />  
-           <Route path='/usercode-list' element={<UserCodeListPage/>} /> 
+           {/* <Route path='/all-orders' element={<AllOrderListPage/>} />   */}
+         
            <Route path='/edit-profile' element={<EditProfile/>} />   
            <Route path='/terms-and-conditions' element={<TermsandCondition/>} />  
-           <Route path='/privacy-policy' element={<PrivacyPolicy/>} />  
+           <Route path='/privacy-policy' element={<PrivacyPolicy/>} /> 
+
+           <Route path='/adminpanel' element={<AdminPanel/>} />    
+           <Route path='/adminpanel/user-list' element={<UserListPage/>} />    
+           <Route path='/adminpanel/bid-list' element={<BidListPage/>} /> 
+           <Route path='/adminpanel/add-products' element={<AddProducts/>}/>
+           <Route path='/adminpanel/usercode-list' element={<UserCodeListPage/>} /> 
+           <Route path='/adminpanel/add-categories' element={<AddCategories/>}/>
+           <Route path='/adminpanel/add-winners' element={<AddWinners/>}/>
+
            <Route element={<Notfound/>}/>
         </Routes>
         <Footer/>

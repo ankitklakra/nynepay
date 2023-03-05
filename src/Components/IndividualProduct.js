@@ -9,10 +9,13 @@ import {
     Image,
     Button,
 } from '@chakra-ui/react';
+
 export const IndividualProduct = ({ individualProduct, addToCart }) => {
+
     const handleAddToCart = () => {
         addToCart(individualProduct);
     }
+    
     return (
         <Center py={12}>
             <Box
@@ -67,13 +70,14 @@ export const IndividualProduct = ({ individualProduct, addToCart }) => {
                         </Text>
                     </Stack>
                     <Stack direction={'row'} align={'center'}>
+
                     <Button
                        
                         fontSize={'sm'}
                         fontWeight={600}
                         color={'white'}
                         bg={'pink.400'}
-                        onClick={addToCart}
+                        onClick={handleAddToCart}
                        
                         _hover={{
                             bg: 'pink.300',
