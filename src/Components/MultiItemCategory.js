@@ -60,7 +60,7 @@ const MultiItemCategory = (props) => {
   // getting products function
   const getCategory = async () => {
     const category = await fs.collection('Category').orderBy('categorynumber', 'asc').get();
-   
+
     for (var snap of category.docs) {
       var data = snap.data();
       data.ID = snap.id;
@@ -79,7 +79,7 @@ const MultiItemCategory = (props) => {
   }, [])
 
   return (
-    <>
+    <div style={{ marginTop: "16px" }} >
       {category.length > 0 && <Slider {...setting}>
         {
           category.map((individualCategory, addToCategory) => (
@@ -89,7 +89,8 @@ const MultiItemCategory = (props) => {
 
       </Slider>
       }
-    </>
+    </div>
+
   );
 };
 

@@ -15,45 +15,39 @@ import {
     Image,
     useColorModeValue,
     Link,
-  } from '@chakra-ui/react';
+} from '@chakra-ui/react';
 import { auth, fs } from '../Config/Config'
 import logo from '../Resources/nbtfull.gif';
 import img from '../Resources/undraw_Loading.png';
 
 export const WalletPage = () => {
 
-    // state of products
-    const [winner, setWinners] = useState();
-
-    var months = ["jan", "feb", "mar", "apr", "may", "jun", "july", "aug", "sep", "oct", "nov", "dec"];
-
-    var date = new Date();
-
-    var month = date.getMonth(); // returns 0 - 11
-
-    var year = date.getFullYear();
-    // getting products function
-    const getWinners = async () => {
-        const docRef = fs.collection('Bid' + months[month] + year).doc(auth.currentUser.uid);
-        docRef.get().then((doc) => {
-            if (doc.exists) {
-                const usersRef = fs.collection('Bid' + months[month] + year).doc(auth.currentUser.uid)
-                usersRef.get()
-                    .then((docSnapshot) => {
-                        var biddata = docSnapshot.data().Totalbid;
-                        setWinners(biddata);
-                    })
-            } else {
-
-            }
-        });
+    function GetUserUid() {
+        const [uid, setUid] = useState(null);
+        useEffect(() => {
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    setUid(user.uid);
+                }
+            })
+        }, [])
+        return uid;
     }
+    const uid = GetUserUid();
 
-    useEffect(() => {
-        getWinners();
-    }, [])
-
-
+    let biddata;
+    // const docRef2 = fs.collection('NynepayBiddingToken').doc(uid);
+    // async function getBidData() {
+    //   const doc2 = await docRef2.get();
+    //   if (doc2.exists) {
+    //     const docSnapshot2 = await docRef2.get();
+    //     biddata = docSnapshot2.data().Totalbid;
+    //   } else {
+        biddata = '0';
+    //   };
+    //   return biddata;
+    // }
+    
 
     return (
         <Flex
@@ -68,12 +62,12 @@ export const WalletPage = () => {
                         <img src={logo} alt="product-img2" />
                     </div> </div> </div>
 
-            {winner != null && (
+            
                 <div className="fab-container" >
-                    <div className="iconbutton" >{winner} </div>
+                    <div className="iconbutton" >{biddata} </div>
                 </div>
-            )}
-           
+            
+
 
 
         </Flex>
