@@ -2,8 +2,9 @@ import React,{useState, useEffect} from 'react'
 import {fs,auth} from '../Config/Config'
 import { Users } from './Users';
 import useFullPageLoader from '../hooks/useFullPageLoader'
+import { useNavigate } from 'react-router-dom';
 export const UserListPage = (props) => {
-
+  const navigate = useNavigate();
   // state of products
   const [users, setUsers]=useState([]);
   const [loader,showLoader,hideLoader]= useFullPageLoader();
@@ -22,12 +23,12 @@ export const UserListPage = (props) => {
                 hideLoader();
                }else{
                 console.log('not user')
-                props.history.push('/');   
+                navigate('/error');   
                }
              })
            }else{
              console.log('not user')
-             props.history.push('/');   
+             navigate('/error');   
            }
          })
        },[])  

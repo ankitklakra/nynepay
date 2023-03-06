@@ -2,8 +2,9 @@ import React,{useState,useEffect} from 'react'
 import useFullPageLoader from '../hooks/useFullPageLoader'
 import {fs,auth} from '../Config/Config'
 import { BidUsers } from './BidUsers';
+import { useNavigate } from 'react-router-dom';
 export const BidListPage= (props) => {
-
+  const navigate = useNavigate();
   // state of products
   const [bid, setBid]=useState([]);
   var [mon, setMonth]=useState('');
@@ -23,12 +24,12 @@ export const BidListPage= (props) => {
               hideLoader();
              }else{
               console.log('not user')
-              props.history.push('/');   
+              navigate('/error');  
              }
            })
          }else{
            console.log('not user')
-           props.history.push('/');   
+           navigate('/error');  
          }
        })
      },[])  
@@ -43,18 +44,19 @@ const uid = GetUserUid();
   var month = date.getMonth(); // returns 0 - 11
  
   var year = date.getFullYear();
-  var loadprevdata= ()=>{
-    console.log('cliked');
-    month = month-1;
-    setMonth(months[month] + year);
-    getUsers()
- }
- var loadnextdata= ()=>{
-   console.log('cliked');
-   month = month+1;
-   setMonth(months[month] + year);
-   getUsers()
-}
+
+//   var loadprevdata= ()=>{
+//     console.log('cliked');
+//     month = month-1;
+//     setMonth(months[month] + year);
+//     getUsers()
+//  }
+//  var loadnextdata= ()=>{
+//    console.log('cliked');
+//    month = month+1;
+//    setMonth(months[month] + year);
+//    getUsers()
+// }
   // getting products function
   const getUsers = async ()=>{
     
@@ -96,11 +98,11 @@ const uid = GetUserUid();
             <h1 className='text-center'>Bid List</h1>
             <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
 
-        <div className='btn btn-danger btn-md' onClick={loadprevdata} > prev </div>  
+        {/* <div className='btn btn-danger btn-md' onClick={loadprevdata} > prev </div>   */}
         <div class="text align-center "> 
-            <span> {mon}</span> 
+            <span> {months[month] + year}</span> 
                 </div>
-        <div className='btn btn-danger btn-md' onClick={loadnextdata}> next </div> 
+        {/* <div className='btn btn-danger btn-md' onClick={loadnextdata}> next </div>  */}
         </div>
             <div className='products-box'>
                 <BidUsers bid={bid} openProductlist={openProductlist}/>

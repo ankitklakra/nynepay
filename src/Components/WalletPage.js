@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {
     Flex,
-    Box,
-    FormControl,
-    FormLabel,
-    Input,
-    InputGroup,
-    HStack,
-    InputRightElement,
-    Stack,
-    Button,
-    Heading,
-    Text,
-    Image,
     useColorModeValue,
-    Link,
 } from '@chakra-ui/react';
 import { auth, fs } from '../Config/Config'
 import logo from '../Resources/nbtfull.gif';
-import img from '../Resources/undraw_Loading.png';
 
 export const WalletPage = () => {
     const [token, setToken] = useState('0');

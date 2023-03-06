@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import useFullPageLoader from '../hooks/useFullPageLoader'
 import { auth, fs } from '../Config/Config'
+import { useNavigate } from 'react-router-dom';
 export const AdminPanel = (props) => {
-
+  const navigate = useNavigate();
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   // getting current user uid
   function GetUserUid() {
@@ -20,12 +21,12 @@ export const AdminPanel = (props) => {
               hideLoader();
             } else {
               console.log('not user')
-              props.history.push('/');
+              navigate('/error');
             }
           })
         } else {
           console.log('not user')
-          props.history.push('/');
+          navigate('/error');;
         }
       })
     }, [])
