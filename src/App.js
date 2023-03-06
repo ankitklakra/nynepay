@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TopNavbar from './Components/TopNavbar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home }from './Components/Home'
+import { Home } from './Components/Home'
 import { Login } from './Components/Login'
 import { Notfound } from './Components/Notfound'
 import { Signup } from './Components/Signup'
@@ -44,56 +44,57 @@ import Navbar from './Components/ProductCarousel/Navbar';
 
 function App() {
   return (
-       <BrowserRouter>
-      
-         <Navbar/>
-         <Routes>
-           <Route path='/' element={<Home/>} />
-           <Route path='/home' element={<Home/>}/>
+    <BrowserRouter>
 
-           <Route path='/signup' element={<Signup/>} />
-           <Route path='/login' element={<Login/>} />
-           <Route path='/profile' element={<Profile/>} />
+      <Navbar />
+      <Routes>
+        <Route path='*' element={<Notfound />} />
 
-           <Route path="/mobiles" element={<MobilesPage/>}/>
-           <Route path="/appliances" element={<AppliancesPage/>}/>  
-           <Route path="/home-Decor" element={<HomeDecorPage/>}/>
-           <Route path="/electronic" element={<ElectronicPage/>}/>
-           <Route path="/fashion" element={<FashionPage/>}/>
-           <Route path="/food" element={<FoodPage/>}/>
-           <Route path="/beauty" element={<BeautyPage/>}/>
-           <Route path="/books" element={<BooksPage/>}/>
-           <Route path="/automobiles" element={<AutoMobilesPage/>}/>
-           <Route path="/tour" element={<ToursPage/>}/>
-           <Route path="/kitchen" element={<KitchenPage/>}/>
-           <Route path="/sports" element={<SportsPage/>}/>
-           <Route path="/jewellery" element={<JewelleryPage/>}/>
-           <Route path="/others" element={<OthersPage/>}/>
-           <Route path="/wallet" element={<WalletPage/>}/>
- 
-           <Route path='/about-us' element={<AboutUs/>} />    
-           <Route path='/contact-us' element={<ContactUs/>} />    
-           <Route path='/winners' element={<WinnersPage/>} />    
-           
-           <Route path='/my-orders' element={<OrderListPage/>} />  
-           {/* <Route path='/all-orders' element={<AllOrderListPage/>} />   */}
-         
-           <Route path='/edit-profile' element={<EditProfile/>} />   
-           <Route path='/terms-and-conditions' element={<TermsandCondition/>} />  
-           <Route path='/privacy-policy' element={<PrivacyPolicy/>} /> 
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
 
-           <Route path='/adminpanel' element={<AdminPanel/>} />    
-           <Route path='/adminpanel/user-list' element={<UserListPage/>} />    
-           <Route path='/adminpanel/bid-list' element={<BidListPage/>} /> 
-           <Route path='/adminpanel/add-products' element={<AddProducts/>}/>
-           <Route path='/adminpanel/usercode-list' element={<UserCodeListPage/>} /> 
-           <Route path='/adminpanel/add-categories' element={<AddCategories/>}/>
-           <Route path='/adminpanel/add-winners' element={<AddWinners/>}/>
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/profile' element={<Profile />} />
 
-           <Route element={<Notfound/>}/>
-        </Routes>
-        <Footer/>
-      </BrowserRouter>
+        <Route path="/mobiles" element={<MobilesPage />} />
+        <Route path="/appliances" element={<AppliancesPage />} />
+        <Route path="/home-Decor" element={<HomeDecorPage />} />
+        <Route path="/electronic" element={<ElectronicPage />} />
+        <Route path="/fashion" element={<FashionPage />} />
+        <Route path="/food" element={<FoodPage />} />
+        <Route path="/beauty" element={<BeautyPage />} />
+        <Route path="/books" element={<BooksPage />} />
+        <Route path="/automobiles" element={<AutoMobilesPage />} />
+        <Route path="/tour" element={<ToursPage />} />
+        <Route path="/kitchen" element={<KitchenPage />} />
+        <Route path="/sports" element={<SportsPage />} />
+        <Route path="/jewellery" element={<JewelleryPage />} />
+        <Route path="/others" element={<OthersPage />} />
+        <Route path="/wallet" element={<WalletPage />} />
+
+        <Route path='/about-us' element={<AboutUs />} />
+        <Route path='/contact-us' element={<ContactUs />} />
+        <Route path='/winners' element={<WinnersPage />} />
+
+        <Route path='/my-orders' element={<OrderListPage />} />
+        {/* <Route path='/all-orders' element={<AllOrderListPage/>} />   */}
+
+        <Route path='/edit-profile' element={<EditProfile />} />
+        <Route path='/terms-and-conditions' element={<TermsandCondition />} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+
+        <Route path='/adminpanel' element={<AdminPanel />} />
+        <Route path='/adminpanel/user-list' element={<UserListPage />} />
+        <Route path='/adminpanel/bid-list' element={<BidListPage />} />
+        <Route path='/adminpanel/add-products' element={<AddProducts />} />
+        <Route path='/adminpanel/usercode-list' element={<UserCodeListPage />} />
+        <Route path='/adminpanel/add-categories' element={<AddCategories />} />
+        <Route path='/adminpanel/add-winners' element={<AddWinners />} />
+
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   )
 }
 

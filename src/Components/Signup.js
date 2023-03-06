@@ -43,7 +43,7 @@ export const Signup = () => {
   const [imageError, setImageError] = useState('');
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   const [uploadError, setUploadError] = useState('');
-  const types = ['image/jpg', 'image/jpeg', 'image/png', 'image/PNG', 'image/webp'];
+  const types = ['image/jpg', 'image/jpeg', 'image/png', 'image/PNG', 'image/webp','image/jfif'];
   const handleProfileImg = (e) => {
     selectedFile = e.target.files[0];
     if (selectedFile) {
@@ -251,7 +251,7 @@ export const Signup = () => {
             Create a new account
           </Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of our cool features ✌️
+            change your life for good
           </Text>
         </Stack>
         <Box

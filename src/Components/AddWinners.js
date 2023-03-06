@@ -17,7 +17,9 @@ import {
   } from '@chakra-ui/react';
 import {storage,fs,auth} from '../Config/Config'
 import useFullPageLoader from '../hooks/useFullPageLoader'
+import { useNavigate } from 'react-router-dom';
 export const AddWinners = (props) => {
+    const navigate = useNavigate();
     var date = new Date();
     const [winnername, setWinnerName]=useState('');
     const [image, setImage]=useState(null);
@@ -42,12 +44,12 @@ export const AddWinners = (props) => {
                 hideLoader();
                }else{
                 console.log('not user')
-                props.history.push('/');   
+                navigate('/error');   
                }
              })
            }else{
              console.log('not user')
-             props.history.push('/');   
+             navigate('/error');
            }
          })
        },[])  

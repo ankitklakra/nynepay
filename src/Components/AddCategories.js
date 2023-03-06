@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { storage, fs, auth } from '../Config/Config'
 import useFullPageLoader from '../hooks/useFullPageLoader'
 import imageCompression from 'browser-image-compression';
+import { useNavigate } from 'react-router-dom';
 export const AddCategories = (props) => {
+    const navigate = useNavigate();
     const now = Date.now();
     var date = new Date();
     const [categoryname, setCategoryName] = useState('');
@@ -29,12 +31,12 @@ export const AddCategories = (props) => {
                             hideLoader();
                         } else {
                             console.log('not user')
-                            props.history.push('/');
+                            navigate('/error');
                         }
                     })
                 } else {
                     console.log('not user')
-                    props.history.push('/');
+                    navigate('/error');
                 }
             })
         }, [])
