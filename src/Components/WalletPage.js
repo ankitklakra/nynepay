@@ -21,7 +21,7 @@ import logo from '../Resources/nbtfull.gif';
 import img from '../Resources/undraw_Loading.png';
 
 export const WalletPage = () => {
-
+    const [token, setToken] = useState('0');
     function GetUserUid() {
         const [uid, setUid] = useState(null);
         useEffect(() => {
@@ -35,19 +35,11 @@ export const WalletPage = () => {
     }
     const uid = GetUserUid();
 
-    let biddata;
-    // const docRef2 = fs.collection('NynepayBiddingToken').doc(uid);
-    // async function getBidData() {
-    //   const doc2 = await docRef2.get();
-    //   if (doc2.exists) {
-    //     const docSnapshot2 = await docRef2.get();
-    //     biddata = docSnapshot2.data().Totalbid;
-    //   } else {
-        biddata = '0';
-    //   };
-    //   return biddata;
-    // }
-    
+    if (uid !== null) {
+        fs.collection('NynepayBiddingToken').doc(uid).get().then(function (doc) {
+            setToken(doc.data().Totalbid);
+        })
+    }
 
     return (
         <Flex
@@ -62,13 +54,10 @@ export const WalletPage = () => {
                         <img src={logo} alt="product-img2" />
                     </div> </div> </div>
 
-            
-                <div className="fab-container" >
-                    <div className="iconbutton" >{biddata} </div>
-                </div>
-            
 
-
+            <div className="fab-container" >
+                <div className="iconbutton" >{token} </div>
+            </div>
 
         </Flex>
     );
