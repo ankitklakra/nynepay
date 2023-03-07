@@ -1,28 +1,27 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TopNavbar from './Components/TopNavbar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home } from './Components/Home'
-import { Login } from './Components/Login'
-import { Notfound } from './Components/Notfound'
-import { Signup } from './Components/Signup'
-import { AddProducts } from './Components/AddProducts'
-import { Profile } from './Components/Profile'
-import { AboutUs } from './Components/AboutUs'
-import { ContactUs } from './Components/ContactUs'
-import { AddWinners } from './Components/AddWinners'
-import { WinnersPage } from './Components/WinnersPage'
-import { AdminPanel } from './Components/AdminPanel'
-import { UserListPage } from './Components/UserListPage'
-import { BidListPage } from './Components/BidListPage'
-import { UserCodeListPage } from './Components/UserCodeListPage'
-import { EditProfile } from './Components/EditProfile'
-import { OrderListPage } from './Components/OrderListPage'
-import { AllOrderListPage } from './Components/AllOrderListPage'
-import { TermsandCondition } from './Components/TermsandCondition'
-import { PrivacyPolicy } from './Components/PrivacyPolicy'
+import { Home } from './Components/MenuPages/Home'
+import { Login } from './Components/MenuPages/Login'
+import { Notfound } from './Components/AdditionalPages/Notfound'
+import { Signup } from './Components/MenuPages/Signup'
+import { AddProducts } from './Components/AdminPages/AddProducts'
+import { Profile } from './Components/MenuPages/Profile'
+import { AboutUs } from './Components/AdditionalPages/AboutUs'
+import { ContactUs } from './Components/AdditionalPages/ContactUs'
+import { AddWinners } from './Components/AdminPages/AddWinners'
+import { WinnersPage } from './Components/MenuPages/WinnersPage'
+import { AdminPanel } from './Components/AdminPages/AdminPanel'
+import { UserListPage } from './Components/AdminPages/UserListPage'
+import { BidListPage } from './Components/AdminPages/BidListPage'
+import { UserCodeListPage } from './Components/AdminPages/UserCodeListPage'
+import { EditProfile } from './Components/MenuPages/EditProfile'
+import { OrderListPage } from './Components/MenuPages/OrderListPage'
+import { AllOrderListPage } from './Components/AdminPages/AllOrderListPage'
+import { TermsandCondition } from './Components/AdditionalPages/TermsandCondition'
+import { PrivacyPolicy } from './Components/AdditionalPages/PrivacyPolicy'
 
-import { AddCategories } from './Components/AddCategories'
+import { AddCategories } from './Components/AdminPages/AddCategories'
 import { MobilesPage } from './Components/CategoryPages/MobilesPage'
 import { AppliancesPage } from './Components/CategoryPages/AppliancesPage'
 import { HomeDecorPage } from './Components/CategoryPages/HomeDecorPage'
@@ -37,10 +36,10 @@ import { KitchenPage } from './Components/CategoryPages/KitchenPage'
 import { SportsPage } from './Components/CategoryPages/SportsPage'
 import { JewelleryPage } from './Components/CategoryPages/JewelleryPage';
 import { OthersPage } from './Components/CategoryPages/OthersPage';
-import { WalletPage } from './Components/WalletPage';
+import { WalletPage } from './Components/MenuPages/WalletPage';
 import Footer from './Components/Footer';
 
-import Navbar from './Components/ProductCarousel/Navbar';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (

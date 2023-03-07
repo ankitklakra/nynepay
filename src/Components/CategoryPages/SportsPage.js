@@ -6,11 +6,11 @@ import {
     Heading,
 } from '@chakra-ui/react';
 import img from '../../Resources/undraw_Loading.png';
-import { Products } from '../Products';
+import { Products } from '../Mapping/Products';
 import 'bootstrap/dist/css/bootstrap.css';
 import { auth, fs } from '../../Config/Config';
-import MainCarousel from '../MainCarousel';
-import MultiItemCategory from '../MultiItemCategory';
+import MainCarousel from '../BannerCarousel';
+import MultiItemCategory from '../ProductCarousel/MultiItemCategory';
 import { useNavigate } from 'react-router-dom';
 
 export const SportsPage = (props) => {

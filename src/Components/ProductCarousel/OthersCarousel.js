@@ -5,7 +5,7 @@ import "./carousel.css";
 import React, { useState, useEffect } from 'react'
 import { fs } from '../../Config/Config'
 import * as IoIcons from "react-icons/io";
-import { IndividualProductCarousel } from "../IndividualProductCarousel";
+import { IndividualProductCarousel } from "../Cards/IndividualProductCarousel";
 
 const PreviousBtn = (props) => {
   console.log(props);
@@ -28,11 +28,18 @@ const NextBtn = (props) => {
 const carouselProperties = {
   prevArrow: <PreviousBtn />,
   nextArrow: <NextBtn />,
-  slidesToShow:3,
+  slidesToShow:4,
   centerMode:true,
   swipeToSlide: true,
-  centerPadding: "170px",
   responsive: [
+    {
+      breakpoint: 320,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false,
+        arrows:false
+      },
+    },
     {
       breakpoint: 426,
       settings: {
@@ -44,7 +51,7 @@ const carouselProperties = {
     {
       breakpoint: 769,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 2,
         centerMode: false,
         arrows:false
       },
@@ -52,14 +59,14 @@ const carouselProperties = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 4,
+        slidesToShow: 3,
         centerMode: false,
       },
     },
     {
-      breakpoint: 1441,
+      breakpoint: 1440,
       settings: {
-        slidesToShow: 5,
+        slidesToShow: 4,
         centerMode:false,
       },
     },
