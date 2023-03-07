@@ -1,14 +1,12 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./carousel.css";
 import React, { useState, useEffect } from 'react'
-import { fs } from '../../Config/Config'
 import * as IoIcons from "react-icons/io";
 import { IndividualProductCarousel } from "../Cards/IndividualProductCarousel";
+import { auth, fs } from '../../Config/Config';
 
 const PreviousBtn = (props) => {
-  console.log(props);
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
@@ -73,14 +71,29 @@ const carouselProperties = {
   ],
 };
 
-const BooksCarousel = () => {
+const MultiItemCarousel = (props) => {
+    // getting current user uid
+
+    function GetUserUid() {
+        const [uid, setUid] = useState(null);
+        useEffect(() => {
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    setUid(user.uid);
+                }
+            })
+        }, [])
+        return uid;
+    }
+    const uid = GetUserUid();
+
 
   // state of products
   const [category, setCategory] = useState([]);
 
   // getting products function
   const getCategory = async () => {
-    const category = await fs.collection('Books').get();
+    const category = await fs.collection('Products').get();
     const categoryArray = [];
     for (var snap of category.docs) {
       var data = snap.data();
@@ -93,15 +106,15 @@ const BooksCarousel = () => {
       }
     }
   }
-
+  
   useEffect(() => {
     getCategory();
   }, [])
 
 
   return (
-    <div style={{ margin: "30px" }} className="carousel">
-      <h1>Books  </h1>
+    <div style={{ margin: "20px" }} className="carousel">
+      <h1>Trending Products </h1>
       <Slider {...carouselProperties}>
         {
           category.map((individualProductCarousel, addToCart) => (
@@ -115,4 +128,4 @@ const BooksCarousel = () => {
   );
 };
 
-export default BooksCarousel;
+export default MultiItemCarousel;

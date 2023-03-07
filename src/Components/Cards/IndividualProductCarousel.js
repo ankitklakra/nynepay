@@ -1,25 +1,30 @@
+import React from 'react'
 import { useState, useEffect } from 'react';
 import {
     Box,
+    Center,
     useColorModeValue,
-    Image,
     Heading,
+    Text,
+    Stack,
+    Image,
+    Button,
 } from '@chakra-ui/react';
-import img from '../../Resources/undraw_Loading.png'; 
-import { Products } from '../Mapping/Products';
-import 'bootstrap/dist/css/bootstrap.css';
+
 import { auth, fs } from '../../Config/Config';
-import MainCarousel from '../BannerCarousel';
-import MultiItemCategory from '../ProductCarousel/MultiItemCategory';
 import { useNavigate } from 'react-router-dom';
 
-export const HomeDecorPage = (props) => {
+export const IndividualProductCarousel = ({ individualProductCarousel  }) => {
+
     const navigate = useNavigate();
     const [fullname, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [photo, setPhoto] = useState(null);
-    // getting current user uid
+
+    const handleAddToCart = () => {
+        addToCart(individualProductCarousel);
+    }
 
     function GetUserUid() {
         const [uid, setUid] = useState(null);
@@ -34,25 +39,6 @@ export const HomeDecorPage = (props) => {
     }
     const uid = GetUserUid();
 
-    // state of products
-    const [products, setProducts] = useState([]);
-
-    // getting products function
-    const getProducts = async () => {
-        const products = await fs.collection('Home-Decor').get();
-        const productsArray = [];
-        for (var snap of products.docs) {
-            var data = snap.data();
-            data.ID = snap.id;
-            productsArray.push({
-                ...data
-            })
-            if (productsArray.length === products.docs.length) {
-                setProducts(productsArray);
-            }
-        }
-    }
-  
     if (uid !== null) {
         fs.collection('users').doc(uid).get().then(function (doc) {
             setFullName(doc.data().FullName);
@@ -61,9 +47,6 @@ export const HomeDecorPage = (props) => {
             setPhoto(doc.data().ProfileImage);
         })
     }
-    useEffect(() => {
-        getProducts();
-    }, [])
 
     const __DEV__ = document.domain === 'localhost'
 
@@ -188,28 +171,82 @@ export const HomeDecorPage = (props) => {
             navigate('/login');
         }
     }
+
     return (
-        <Box
-            minH={'100vh'}
-            align={'center'}
-            justify={'center'}
-            bg={useColorModeValue('gray.50', 'gray.800')}>
-            {products.length > 0 && (
-                <Box margin={5}>
-                    <MultiItemCategory />
-                    <MainCarousel />
-                    <Heading>Home Decor</Heading>
-                    <div className='products-box'><Products products={products} addToCart={addToCart} /> </div>
+        <Center py={12}>
+            <Box
+                role={'group'}
+                p={6}
+                margin={1}
+                maxW={'330px'}
+                w={'full'}
+                bg={useColorModeValue('white', 'gray.800')}
+                boxShadow={'2xl'}
+                rounded={'lg'}
+                pos={'relative'}
+                zIndex={1}>
+                <Box
+                    rounded={'lg'}
+                    mt={-12}
+                    pos={'relative'}
+                    height={'230px'}
+                    _after={{
+                        transition: 'all .3s ease',
+                        content: '""',
+                        w: 'full',
+                        h: 'full',
+                        pos: 'absolute',
+                        top: 5,
+                        left: 0,
+                        backgroundImage: `url(${individualProductCarousel.url})`,
+                        filter: 'blur(15px)',
+                        zIndex: -1,
+                    }}
+                    _groupHover={{
+                        _after: {
+                            filter: 'blur(20px)',
+                        },
+                    }}>
+                    <Image
+                        rounded={'lg'}
+                        height={230}
+                        width={282}
+                        objectFit={'cover'}
+                        src={individualProductCarousel.url}
+                    />
                 </Box>
-            )}
-            {products.length < 1 && (
+                <Stack pt={10} align={'center'}>
+                    <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
+                        Brand
+                    </Text>
+                    <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+                        {individualProductCarousel.title}
+                    </Heading>
+                    <Stack direction={'row'} align={'center'}>
+                        <Text fontWeight={800} fontSize={'xl'}>
+                            ₹ {individualProductCarousel.price}
+                        </Text>
 
-                <Box boxSize='sm'>
-                    <Image src={img} alt='loading' />
-                </Box>
+                    </Stack>
+                    <Stack direction={'row'} align={'center'}>
 
-            )}
-        </Box>
+                        <Button
+
+                            fontSize={'sm'}
+                            fontWeight={600}
+                            color={'white'}
+                            bg={'pink.400'}
+                            onClick={handleAddToCart}
+
+                            _hover={{
+                                bg: 'pink.300',
+                            }}
+                        >
+                            Bid Now
+                        </Button>
+                    </Stack>
+                </Stack>
+            </Box>
+        </Center>
     )
 }
-
