@@ -24,7 +24,7 @@ import {
 } from '@chakra-ui/react';
 
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-export const Signup = () => {
+export const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -74,8 +74,8 @@ export const Signup = () => {
     }
   }
 
-  // signup
-  const handelSignup = (e) => {
+  // Register
+  const handelRegister = (e) => {
     e.preventDefault();
     showLoader();
     if (image != null) {
@@ -111,7 +111,7 @@ export const Signup = () => {
                   if (refcode === "") {
                     showLoader();
                     console.log('ref code is not used')
-                    setSuccessMsg('Signup Successfull. You will now automatically get redirected to Home');
+                    setSuccessMsg('Register Successfull. You will now automatically get redirected to Home');
                     setFullName('');
                     setErrorMsg('');
                     setEmail('');
@@ -138,7 +138,7 @@ export const Signup = () => {
                         }).then(() => {
                           console.log('ref code used')
                           fs.collection('RefCode').doc(refcode).update({ Totaluse: num + Number(1) }).then(() => {
-                            setSuccessMsg('Signup Successfull. You will now automatically get redirected to Home');
+                            setSuccessMsg('Register Successfull. You will now automatically get redirected to Home');
                             setFullName('');
                             setEmail('');
                             setPhone('');
@@ -156,7 +156,7 @@ export const Signup = () => {
                       } else {
                         showLoader();
                         console.log('wrong ref code is used')
-                        setSuccessMsg('Signup Successfull. You will now automatically get redirected to Home');
+                        setSuccessMsg('Register Successfull. You will now automatically get redirected to Home');
                         setFullName('');
                         setEmail('');
                         setPhone('');
@@ -195,7 +195,7 @@ export const Signup = () => {
     // <br></br>
     // {successMsg&&<><div className='success-msg'>{successMsg}<br></br></div></>}
     // <br></br>
-    // <form  className='form-group' autoComplete="off" onSubmit={handelSignup}>
+    // <form  className='form-group' autoComplete="off" onSubmit={handelRegister}>
     //     <label>Full Name</label>
     //     <input type="text" className='form-control' required
     //     onChange={(e) => setFullName(e.target.value)} value={fullname}></input>
@@ -306,7 +306,7 @@ export const Signup = () => {
             </Stack>
             <Stack spacing={10} pt={2}>
               <Button
-                onClick={handelSignup}
+                onClick={handelRegister}
                 loadingText="Submitting"
                 size="lg"
                 bg={'blue.400'}
@@ -314,7 +314,7 @@ export const Signup = () => {
                 _hover={{
                   bg: 'blue.500',
                 }}>
-                Sign up
+                Register
               </Button>
             </Stack>
             <Box>

@@ -73,8 +73,8 @@ export const Login = () => {
     //         onChange={(e) => setPassword(e.target.value)} value={password}></input>
     //         <br></br>
     //         <div className='btn-box'>
-    //         <span>Don't have an account? SignUp
-    //         <Link to="signup"> Here</Link>
+    //         <span>Don't have an account? Register
+    //         <Link to="Register"> Here</Link>
     //         </span>
     //         <button type="submit" className='btn btn-success btn-md'>LOGIN</button>
     //         </div>
@@ -131,7 +131,7 @@ export const Login = () => {
                 _hover={{
                   bg: 'blue.500',
                 }}>
-                Sign in
+                Login
               </Button>
               <Box>
                 {successMsg && <>
@@ -150,7 +150,7 @@ export const Login = () => {
                 </>}
               </Box>
               <Text align={'center'}>
-                  New user? <Link href='/signup' color={'blue.400'}>Sign up</Link>
+                  New user? <Link href='/register' color={'blue.400'}>Register</Link>
                 </Text>
             </Stack>
           </Stack>

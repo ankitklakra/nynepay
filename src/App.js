@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './Components/MenuPages/Home'
 import { Login } from './Components/MenuPages/Login'
 import { Notfound } from './Components/AdditionalPages/Notfound'
-import { Signup } from './Components/MenuPages/Signup'
+import { Register } from './Components/MenuPages/Register'
 import { AddProducts } from './Components/AdminPages/AddProducts'
 import { Profile } from './Components/MenuPages/Profile'
 import { AboutUs } from './Components/AdditionalPages/AboutUs'
@@ -30,7 +30,7 @@ import { FashionPage } from './Components/CategoryPages/FashionPage'
 import { FoodPage } from './Components/CategoryPages/FoodPage'
 import { BeautyPage } from './Components/CategoryPages/BeautyPage'
 import { BooksPage } from './Components/CategoryPages/BooksPage'
-import { AutoMobilesPage } from './Components/CategoryPages/AutoMobilesPage'
+// import { AutoMobilesPage } from './Components/CategoryPages/AutoMobilesPage'
 import { ToursPage } from './Components/CategoryPages/ToursPage'
 import { KitchenPage } from './Components/CategoryPages/KitchenPage'
 import { SportsPage } from './Components/CategoryPages/SportsPage'
@@ -52,7 +52,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
 
-        <Route path='/signup' element={<Signup />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
 
@@ -64,7 +64,7 @@ function App() {
         <Route path="/food" element={<FoodPage />} />
         <Route path="/beauty" element={<BeautyPage />} />
         <Route path="/books" element={<BooksPage />} />
-        <Route path="/automobiles" element={<AutoMobilesPage />} />
+        {/* <Route path="/automobiles" element={<AutoMobilesPage />} /> */}
         <Route path="/tour" element={<ToursPage />} />
         <Route path="/kitchen" element={<KitchenPage />} />
         <Route path="/sports" element={<SportsPage />} />

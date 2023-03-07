@@ -13,7 +13,7 @@ import MultiItemCarousel from '../ProductCarousel/MultiItemCarousel';
 import MainCarousel from '../BannerCarousel';
 import FashionCarousel from '../ProductCarousel/FashionCarousel';
 import AppliancesCarousel from '../ProductCarousel/AppliancesCarousel';
-import AutoMobilesCarousel from '../ProductCarousel/AutoMobilesCarousel';
+// import AutoMobilesCarousel from '../ProductCarousel/AutoMobilesCarousel';
 import BeautyCarousel from '../ProductCarousel/BeautyCarousel';
 import BooksCarousel from '../ProductCarousel/BooksCarousel';
 import FoodCarousel from '../ProductCarousel/FoodCarousel';
@@ -72,8 +72,7 @@ export const Home = (props) => {
                         <KitchenCarousel />
                         <SportsCarousel />
                         <BeautyCarousel />
-                        <BooksCarousel />
-                        <AutoMobilesCarousel />
+                        <BooksCarousel />                      
                         <JwelleryCarousel />
                         <FoodCarousel />
                         <TourCarousel />
