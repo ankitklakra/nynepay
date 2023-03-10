@@ -11,7 +11,7 @@ var setting = {
   arrows: false,
   slidesToShow: 12,
   // initialSlide: 0,
-  swipeToSlide: true,
+//  swipeToSlide: true,
   responsive: [
     {
       breakpoint: 1441,

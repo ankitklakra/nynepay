@@ -31,7 +31,7 @@ const carouselProperties = {
   nextArrow: <NextBtn />,
   slidesToShow:4,
   centerMode:true,
-  swipeToSlide: true,
+  // swipeToSlide: true,
   responsive: [
     {
       breakpoint: 320,
