@@ -63,7 +63,7 @@ export const Home = (props) => {
                 <div className='container-fluid'>
                         <MultiItemCategory />
                         <MainCarousel />
-                        <MultiItemCarousel />
+                        {/* <MultiItemCarousel /> */}
                         <ElectronicsCarousel />
                         <MobileCarousel />
                         <FashionCarousel />
