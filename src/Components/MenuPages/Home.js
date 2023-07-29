@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy  } from 'react'
 import {
     Flex,
     Box,
@@ -9,7 +9,7 @@ import { fs } from '../../Config/Config'
 import 'bootstrap/dist/css/bootstrap.css';
 import img from '../../Resources/undraw_Loading.png';
 import MultiItemCategory from '../ProductCarousel/MultiItemCategory';
-import MultiItemCarousel from '../ProductCarousel/MultiItemCarousel';
+// import MultiItemCarousel from '../ProductCarousel/MultiItemCarousel';
 import MainCarousel from '../BannerCarousel';
 import FashionCarousel from '../ProductCarousel/FashionCarousel';
 import AppliancesCarousel from '../ProductCarousel/AppliancesCarousel';
@@ -59,7 +59,7 @@ export const Home = (props) => {
             bg={useColorModeValue('gray.50', 'gray.800')}>
 
             <br></br>
-            {products.length > 0 && (
+            {products.length > 0 ? (
                 <div className='container-fluid'>
                         <MultiItemCategory />
                         <MainCarousel />
@@ -80,12 +80,14 @@ export const Home = (props) => {
                         <br></br>
                    
                 </div>
-            )}
-            {products.length < 1 && (
+            )
+            : (
+                // Show the loader while products are being fetched
+                // <Loader />
                 <Box boxSize='sm'>
-                    <Image src={img} alt='loading' />
-                </Box>
-            )}
+                <Image src={img} alt='loading' />
+            </Box>
+              )}
 
         </Flex>
     )

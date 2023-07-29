@@ -1,4 +1,5 @@
 import React from 'react'
+import LazyLoad from 'react-lazyload';
 import { useState, useEffect } from 'react';
 import {
     Box,
@@ -14,7 +15,7 @@ import {
 import { auth, fs } from '../../Config/Config';
 import { useNavigate } from 'react-router-dom';
 
-export const IndividualProductCarousel = ({ individualProductCarousel  }) => {
+export const IndividualProductCarousel = ({ individualProductCarousel }) => {
 
     const navigate = useNavigate();
     const [fullname, setFullName] = useState('');
@@ -207,17 +208,19 @@ export const IndividualProductCarousel = ({ individualProductCarousel  }) => {
                             filter: 'blur(20px)',
                         },
                     }}>
-                    <Image
-                        rounded={'lg'}
-                        height={230}
-                        width={282}
-                        objectFit={'cover'}
-                        src={individualProductCarousel.url}
-                    />
+                  <LazyLoad height={230} offset={100}>
+            <Image
+              rounded={'lg'}
+              height={230}
+              width={282}
+              objectFit={'cover'}
+              src={individualProductCarousel.url}
+            />
+          </LazyLoad>
                 </Box>
                 <Stack pt={10} align={'center'}>
-                   
-                    <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+
+                    <Heading noOfLines={1} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
                         {individualProductCarousel.title}
                     </Heading>
                     <Stack direction={'row'} align={'center'}>
@@ -244,6 +247,7 @@ export const IndividualProductCarousel = ({ individualProductCarousel  }) => {
                         </Button>
                     </Stack>
                 </Stack>
+                
             </Box>
         </Center>
     )

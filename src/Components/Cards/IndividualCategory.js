@@ -1,22 +1,25 @@
-import {
-    Link,
-    Box,
-} from '@chakra-ui/react';
+import { Link, Box, Flex } from '@chakra-ui/react';
+import CategoryPage from '../CategoryPages/CategoryPage';
 
-export const IndividualCategory = ({ individualCategory, addToCategory }) => {
+export const IndividualCategory = ({ individualCategory }) => {
+  const { categoryname, url } = individualCategory;
+  const categoryLink = `/${categoryname}`;
+  const imageAlt = "product-img";
+  const imageSize = "50px";
+
+  const categoryStyle = {
+    fontSize: "10px",
+  };
+
+  return (
+    <Box>
+      <Link href={categoryLink}>
+        <Flex flexDirection="column" alignItems="center">
+          <Box as="img" src={url} height={imageSize} width={imageSize} alt={imageAlt} className="roundimage" />
+          <div style={categoryStyle}>{categoryname}</div>
+        </Flex>
+      </Link>
     
-    return (
-        <Box>
-        <Link href={individualCategory.categoryname}  >
-            <div classname='single-item'>
-                <div className='category-divs'>
-                    <div className='category-imgs'>
-                        <img src={individualCategory.url} height="50" width="50" alt="product-img" className="roundimage" />
-                    </div>
-                </div>
-                <div className='text-center'style={{ fontSize: "10px", }} >{individualCategory.categoryname}</div>
-            </div>
-        </Link>
-        </Box>
-    )
-}
+    </Box>
+  );
+};

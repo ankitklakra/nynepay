@@ -1,6 +1,6 @@
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from 'react'
 import { fs } from '../../Config/Config'
 import { IndividualCategory } from "../Cards/IndividualCategory";
@@ -9,9 +9,8 @@ var setting = {
   dots: false,
   infinite: false,
   arrows: false,
-  slidesToShow: 12,
-  // initialSlide: 0,
-//  swipeToSlide: true,
+  slidesToShow: 12, 
+  swipeToSlide: true,
   responsive: [
     {
       breakpoint: 1441,

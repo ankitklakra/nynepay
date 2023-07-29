@@ -22,21 +22,8 @@ import { TermsandCondition } from './Components/AdditionalPages/TermsandConditio
 import { PrivacyPolicy } from './Components/AdditionalPages/PrivacyPolicy'
 
 import { AddCategories } from './Components/AdminPages/AddCategories'
-import { MobilesPage } from './Components/CategoryPages/MobilesPage'
-import { AppliancesPage } from './Components/CategoryPages/AppliancesPage'
-import { HomeDecorPage } from './Components/CategoryPages/HomeDecorPage'
-import { ElectronicPage } from './Components/CategoryPages/ElectronicPage'
-import { FashionPage } from './Components/CategoryPages/FashionPage'
-import { FoodPage } from './Components/CategoryPages/FoodPage'
-import { BeautyPage } from './Components/CategoryPages/BeautyPage'
-import { BooksPage } from './Components/CategoryPages/BooksPage'
-// import { AutoMobilesPage } from './Components/CategoryPages/AutoMobilesPage'
-import { ToursPage } from './Components/CategoryPages/ToursPage'
-import { KitchenPage } from './Components/CategoryPages/KitchenPage'
-import { SportsPage } from './Components/CategoryPages/SportsPage'
-import { JewelleryPage } from './Components/CategoryPages/JewelleryPage';
-import { OthersPage } from './Components/CategoryPages/OthersPage';
 import { WalletPage } from './Components/MenuPages/WalletPage';
+import CategoryPage from './Components/CategoryPages/CategoryPage';
 import Footer from './Components/Footer';
 
 import Navbar from './Components/Navbar';
@@ -55,21 +42,6 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
-
-        <Route path="/mobiles" element={<MobilesPage />} />
-        <Route path="/appliances" element={<AppliancesPage />} />
-        <Route path="/home-Decor" element={<HomeDecorPage />} />
-        <Route path="/electronic" element={<ElectronicPage />} />
-        <Route path="/fashion" element={<FashionPage />} />
-        <Route path="/food" element={<FoodPage />} />
-        <Route path="/beauty" element={<BeautyPage />} />
-        <Route path="/books" element={<BooksPage />} />
-        {/* <Route path="/automobiles" element={<AutoMobilesPage />} /> */}
-        <Route path="/tour" element={<ToursPage />} />
-        <Route path="/kitchen" element={<KitchenPage />} />
-        <Route path="/sports" element={<SportsPage />} />
-        <Route path="/jewellery" element={<JewelleryPage />} />
-        <Route path="/others" element={<OthersPage />} />
 
         <Route path="/wallet" element={<WalletPage />} />
         <Route path='/about-us' element={<AboutUs />} />
@@ -90,7 +62,7 @@ function App() {
         <Route path='/adminpanel/usercode-list' element={<UserCodeListPage />} />
         <Route path='/adminpanel/add-categories' element={<AddCategories />} />
         <Route path='/adminpanel/add-winners' element={<AddWinners />} />
-
+        <Route path="/:categoryId" element={<CategoryPage/> } />
       </Routes>
       <Footer />
     </BrowserRouter>
