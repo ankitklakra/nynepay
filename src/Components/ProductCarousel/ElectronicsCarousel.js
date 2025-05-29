@@ -81,7 +81,7 @@ const ElectronicsCarousel = () => {
 
   // getting products function
   const getCategory = async () => {
-    const category = await fs.collection('Electronic').get();
+    const category = await fs.collection('Electronics').get();
     const categoryArray = [];
     for (var snap of category.docs) {
       var data = snap.data();

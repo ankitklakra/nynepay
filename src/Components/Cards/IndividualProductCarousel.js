@@ -1,5 +1,5 @@
 import React from 'react'
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import { useState, useEffect } from 'react';
 import {
     Box,
@@ -208,7 +208,7 @@ export const IndividualProductCarousel = ({ individualProductCarousel }) => {
                             filter: 'blur(20px)',
                         },
                     }}>
-                  <LazyLoad height={230} offset={100}>
+                  {/* <LazyLoad height={230} offset={100}> */}
             <Image
               rounded={'lg'}
               height={230}
@@ -216,7 +216,7 @@ export const IndividualProductCarousel = ({ individualProductCarousel }) => {
               objectFit={'cover'}
               src={individualProductCarousel.url}
             />
-          </LazyLoad>
+          {/* </LazyLoad> */}
                 </Box>
                 <Stack pt={10} align={'center'}>
 

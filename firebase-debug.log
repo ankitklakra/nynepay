@@ -1,0 +1,45 @@
+[debug] [2025-05-29T10:15:57.486Z] ----------------------------------------------------------------------
+[debug] [2025-05-29T10:15:57.489Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ankit\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-05-29T10:15:57.489Z] CLI Version:   14.4.0
+[debug] [2025-05-29T10:15:57.490Z] Platform:      win32
+[debug] [2025-05-29T10:15:57.490Z] Node Version:  v22.14.0
+[debug] [2025-05-29T10:15:57.490Z] Time:          Thu May 29 2025 15:45:57 GMT+0530 (India Standard Time)
+[debug] [2025-05-29T10:15:57.490Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-05-29T10:15:57.658Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-29T10:15:57.659Z] > authorizing via signed-in user (ankitlakra157@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\cursor\nynepay
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-05-29T10:16:08.943Z] Using project from CLI flag: nynepay
+[debug] [2025-05-29T10:16:08.945Z] Checked if tokens are valid: true, expires at: 1748517279043
+[debug] [2025-05-29T10:16:08.945Z] Checked if tokens are valid: true, expires at: 1748517279043
+[debug] [2025-05-29T10:16:08.948Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nynepay [none]
+[debug] [2025-05-29T10:16:10.028Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nynepay 403
+[debug] [2025-05-29T10:16:10.029Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nynepay {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-05-29T10:16:10.030Z] Request to https://firebase.googleapis.com/v1beta1/projects/nynepay had HTTP Error: 403, The caller does not have permission
+[debug] [2025-05-29T10:16:10.363Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/nynepay had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\ankit\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:52:12)
+    at RetryOperation._fn (C:\Users\ankit\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project nynepay. Please make sure the project exists and your account has permission to access it.

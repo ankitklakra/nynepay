@@ -62,7 +62,7 @@ function App() {
         <Route path='/adminpanel/usercode-list' element={<UserCodeListPage />} />
         <Route path='/adminpanel/add-categories' element={<AddCategories />} />
         <Route path='/adminpanel/add-winners' element={<AddWinners />} />
-        <Route path="/:categoryId" element={<CategoryPage/> } />
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

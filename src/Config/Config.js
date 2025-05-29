@@ -5,19 +5,20 @@ import 'firebase/compat/firestore'
 import 'firebase/compat/storage'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAqB6VCcCRnRvLXzzG5PkeGCT79VtM3-2w",
-    authDomain: "nynepay.firebaseapp.com",
-    projectId: "nynepay",
-    storageBucket: "nynepay.appspot.com",
-    messagingSenderId: "767335594620",
-    appId: "1:767335594620:web:ef94a7349f12560fc5a7f9",
-    measurementId: "G-7XGW0XEFRE"
-  };
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+};
 
-  firebase.initializeApp(firebaseConfig)
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig)
 
-  const auth = firebase.auth();
-  const fs = firebase.firestore();
-  const storage = firebase.storage();
+const auth = firebase.auth();
+const fs = firebase.firestore();
+const storage = firebase.storage();
 
-  export {auth,fs,storage}
+export {auth,fs,storage}

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import useFullPageLoader from '../../hooks/useFullPageLoader'
 import { auth, fs } from '../../Config/Config'
 import { useNavigate } from 'react-router-dom';
+import AddDummyData from './AddDummyData';
+
 export const AdminPanel = (props) => {
   const navigate = useNavigate();
   const [loader, showLoader, hideLoader] = useFullPageLoader();
@@ -37,7 +39,6 @@ export const AdminPanel = (props) => {
 
   return (
     <>
-
       <div className="container-fluid">
         <h1>Admin PANEL</h1>
 
@@ -58,6 +59,12 @@ export const AdminPanel = (props) => {
         <br></br>
 
         <div><Link className='navlink' to="add-categories"><button type="button" class="btn btn-dark">ADD CATEGORY</button></Link></div>
+        <br></br>
+
+        <div className="mt-4">
+          <h3>Quick Actions</h3>
+          <AddDummyData />
+        </div>
         <br></br>
         {loader}
       </div>

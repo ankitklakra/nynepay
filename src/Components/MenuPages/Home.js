@@ -27,29 +27,35 @@ import JwelleryCarousel from '../ProductCarousel/JwelleryCarousel';
 import OthersCarousel from '../ProductCarousel/OthersCarousel';
 
 export const Home = (props) => {
+    // state for categories and products
+    const [categories, setCategories] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    // state of products
-    const [products, setProducts] = useState([]);
-
-    // getting products function
-    const getProducts = async () => {
-        const products = await fs.collection('Products').get();
-        const productsArray = [];
-        for (var snap of products.docs) {
-            var data = snap.data();
-            data.ID = snap.id;
-            productsArray.push({
-                ...data
-            })
-            if (productsArray.length === products.docs.length) {
-                setProducts(productsArray);
+    // getting categories function
+    const getCategories = async () => {
+        try {
+            const categoriesSnapshot = await fs.collection('Products').get();
+            const categoriesArray = [];
+            
+            for (const snap of categoriesSnapshot.docs) {
+                const data = snap.data();
+                categoriesArray.push({
+                    ...data,
+                    ID: snap.id
+                });
             }
+            
+            setCategories(categoriesArray);
+            setIsLoading(false);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+            setIsLoading(false);
         }
     }
-    useEffect(() => {
-        getProducts();
-    }, [])
 
+    useEffect(() => {
+        getCategories();
+    }, []);
 
     return (
         <Flex
@@ -57,38 +63,32 @@ export const Home = (props) => {
             align={'center'}
             justify={'center'}
             bg={useColorModeValue('gray.50', 'gray.800')}>
-
             <br></br>
-            {products.length > 0 ? (
+            {!isLoading ? (
                 <div className='container-fluid'>
-                        <MultiItemCategory />
-                        <MainCarousel />
-                        {/* <MultiItemCarousel /> */}
-                        <ElectronicsCarousel />
-                        <MobileCarousel />
-                        <FashionCarousel />
-                        <AppliancesCarousel />
-                        <HomeDecorCarousel />
-                        <KitchenCarousel />
-                        <SportsCarousel />
-                        <BeautyCarousel />
-                        <BooksCarousel />                      
-                        <JwelleryCarousel />
-                        <FoodCarousel />
-                        <TourCarousel />
-                        <OthersCarousel />
-                        <br></br>
-                   
+                    <MainCarousel />
+                    <MultiItemCategory categories={categories} />
+                    {/* <MultiItemCarousel /> */}
+                    <ElectronicsCarousel />
+                    {/* <MobileCarousel /> */}
+                    <FashionCarousel />
+                    <AppliancesCarousel />
+                    {/* <HomeDecorCarousel /> */}
+                    {/* <KitchenCarousel /> */}
+                    {/* <SportsCarousel /> */}
+                    <BeautyCarousel />
+                    <BooksCarousel />                      
+                    <JwelleryCarousel />
+                    <FoodCarousel />
+                    <TourCarousel />
+                    <OthersCarousel />
+                    <br></br>
                 </div>
-            )
-            : (
-                // Show the loader while products are being fetched
-                // <Loader />
+            ) : (
                 <Box boxSize='sm'>
-                <Image src={img} alt='loading' />
-            </Box>
-              )}
-
+                    <Image src={img} alt='loading' />
+                </Box>
+            )}
         </Flex>
     )
 }
