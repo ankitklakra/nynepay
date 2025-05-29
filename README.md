@@ -85,6 +85,66 @@ npm install
 npm start
 ```
 
+## Deployment to Netlify
+
+### Method 1: Deploy via Netlify UI
+
+1. Push your code to GitHub
+2. Go to [Netlify](https://www.netlify.com/) and sign up/login
+3. Click "New site from Git"
+4. Choose your repository
+5. Configure build settings:
+   - Build command: `npm run build`
+   - Publish directory: `build`
+6. Add environment variables:
+   - Go to Site settings > Build & deploy > Environment
+   - Add all your Firebase environment variables
+7. Click "Deploy site"
+
+### Method 2: Deploy via Netlify CLI
+
+1. Install Netlify CLI
+```bash
+npm install -g netlify-cli
+```
+
+2. Login to Netlify
+```bash
+netlify login
+```
+
+3. Initialize your site
+```bash
+netlify init
+```
+
+4. Deploy your site
+```bash
+netlify deploy --prod
+```
+
+### Environment Variables in Netlify
+
+1. Go to your site's dashboard
+2. Navigate to Site settings > Build & deploy > Environment
+3. Add the following environment variables:
+   ```
+   REACT_APP_FIREBASE_API_KEY
+   REACT_APP_FIREBASE_AUTH_DOMAIN
+   REACT_APP_FIREBASE_PROJECT_ID
+   REACT_APP_FIREBASE_STORAGE_BUCKET
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID
+   REACT_APP_FIREBASE_APP_ID
+   REACT_APP_FIREBASE_MEASUREMENT_ID
+   ```
+
+### Important Notes for Deployment
+
+1. Make sure all environment variables are set in Netlify
+2. Enable CORS in Firebase if needed
+3. Update Firebase Authentication settings to allow your Netlify domain
+4. Test the deployment in a staging environment first
+
 ## Project Structure
 
 ```
