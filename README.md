@@ -1,5 +1,7 @@
 # Nynepay - E-commerce Platform
 
+🌐 **Live Demo**: [https://nynepay.netlify.app/](https://nynepay.netlify.app/)
+
 Nynepay is a modern e-commerce platform built with React and Firebase, offering a seamless shopping experience with features like product browsing, category management, and secure payments.
 
 ## Features
